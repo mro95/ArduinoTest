@@ -65,8 +65,12 @@ void setup() {
 }
 
 void loop() {
-    uint8_t reading = readAnalog(0);
-    transmit(reading); 
+    uint8_t temp = readAnalog(0);
+    uint8_t light = readAnalog(1);
+    transmit(0x00); 
+    transmit(temp); 
+    transmit(0x01); 
+    transmit(light); 
     _delay_ms(500);
 }
 
